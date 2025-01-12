@@ -265,7 +265,7 @@ class IniChainBot:
 
             signed_txn = w3.eth.account.sign_transaction(transaction, self.account.key)
             tx_hash = w3.eth.send_raw_transaction(signed_txn.raw_Transaction)
-            
+            #new web3 用raw_Transaction
             
             receipt = self.wait_for_transaction(tx_hash)
             
@@ -351,7 +351,7 @@ class IniChainBot:
             })
             
             signed_txn = w3.eth.account.sign_transaction(approve_txn, self.account.key)
-            tx_hash = w3.eth.send_raw_transaction(signed_txn.rawTransaction)
+            tx_hash = w3.eth.send_raw_transaction(signed_txn.raw_Transaction)
             
             receipt = self.wait_for_transaction(tx_hash)
             return receipt is not None and receipt['status'] == 1
@@ -441,7 +441,7 @@ class IniChainBot:
             })
             
             signed_txn = w3.eth.account.sign_transaction(swap_txn, self.account.key)
-            tx_hash = w3.eth.send_raw_transaction(signed_txn.rawTransaction)
+            tx_hash = w3.eth.send_raw_transaction(signed_txn.raw_Transaction)
             
             receipt = self.wait_for_transaction(tx_hash)
             if receipt and receipt['status'] == 1:
@@ -516,7 +516,7 @@ class IniChainBot:
             })
             
             signed_txn = w3.eth.account.sign_transaction(swap_txn, self.account.key)
-            tx_hash = w3.eth.send_raw_transaction(signed_txn.rawTransaction)
+            tx_hash = w3.eth.send_raw_transaction(signed_txn.raw_Transaction)
             
             receipt = self.wait_for_transaction(tx_hash)
             if receipt and receipt['status'] == 1:
@@ -566,7 +566,7 @@ class IniChainBot:
             })
             
             signed_txn = w3.eth.account.sign_transaction(deposit_txn, self.account.key)
-            tx_hash = w3.eth.send_raw_transaction(signed_txn.rawTransaction)
+            tx_hash = w3.eth.send_raw_transaction(signed_txn.raw_Transaction)
             
             receipt = self.wait_for_transaction(tx_hash)
             if receipt and receipt['status'] == 1:
@@ -676,7 +676,7 @@ class IniChainBot:
             
             # 签名并发送交易
             signed_txn = w3.eth.account.sign_transaction(transaction, self.account.key)
-            tx_hash = w3.eth.send_raw_transaction(signed_txn.rawTransaction)
+            tx_hash = w3.eth.send_raw_transaction(signed_txn.raw_Transaction)
             
             print(f"[{account_info}] 等待代币创建确认...")
             receipt = self.wait_for_transaction(tx_hash)
@@ -932,7 +932,7 @@ def send_ini_to_self(private_keys):
             
             # 签名并发送交易
             signed_txn = w3.eth.account.sign_transaction(transaction, bot.account.key)
-            tx_hash = w3.eth.send_raw_transaction(signed_txn.rawTransaction)
+            tx_hash = w3.eth.send_raw_transaction(signed_txn.raw_Transaction)
             
             # 等待交易回执
             receipt = bot.wait_for_transaction(tx_hash)
